@@ -174,3 +174,12 @@ body {
     border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent-color); }
+
+// Fix Modal Z-Index to appear above Hero Banner (z-index: 1100) and Dropdowns (z-index: 2000)
+.modal-backdrop {
+    z-index: 2050 !important;
+}
+
+.modal {
+    z-index: 2055 !important;
+}
