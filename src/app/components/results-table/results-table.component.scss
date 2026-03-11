@@ -1,19 +1,42 @@
 .results-table {
     color: var(--body-color);
+    margin-bottom: 0;
+
     thead th {
-        color: var(--bs-secondary);
-        border-bottom-color: var(--card-border);
-        font-size: 0.8rem;
+        color: var(--body-color);
+        opacity: 0.7;
+        border-bottom: 2px solid var(--card-border);
+        font-size: 0.75rem;
         text-transform: uppercase;
         letter-spacing: 0.05em;
+        background-color: rgba(0, 0, 0, 0.05);
+        padding: 0.75rem;
     }
+
     .result-row {
         cursor: pointer;
         border-bottom: 1px solid var(--card-border);
-        transition: background-color 0.1s ease;
-        &:hover { background-color: rgba(255, 255, 255, 0.05); }
-        td { vertical-align: middle; padding: 0.5rem 0.75rem; }
+        transition: all 0.2s ease;
+        
+        &:hover { 
+            background-color: rgba(var(--primary-color), 0.1); 
+        }
+
+        td { 
+            vertical-align: middle; 
+            padding: 0.75rem; 
+        }
     }
-    .condition-title { font-size: 0.9rem; color: var(--body-color); }
+
+    .condition-title { 
+        font-size: 0.95rem; 
+        font-weight: 500;
+        color: var(--body-color); 
+    }
 }
-.result-count { font-size: 0.8rem; }
+
+.result-count { 
+    font-size: 0.85rem; 
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid var(--card-border);
+}

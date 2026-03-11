@@ -56,51 +56,68 @@
                 <svg class="body-svg" viewBox="0 0 200 440" xmlns="http://www.w3.org/2000/svg"
                     role="img" aria-label="Exterior body diagram">
                     <g class="body-outline">
+                        <!-- Head -->
                         <ellipse cx="100" cy="42" rx="32" ry="38" />
+                        <!-- Neck -->
                         <rect x="88" y="78" width="24" height="18" />
+                        <!-- Torso -->
                         <rect x="58" y="94" width="84" height="114" rx="4" />
+                        <!-- Arms -->
                         <polygon points="58,98 36,108 28,188 50,188 62,128" />
                         <polygon points="142,98 164,108 172,188 150,188 138,128" />
+                        <!-- Hands -->
                         <rect x="22" y="188" width="30" height="30" rx="4" />
                         <rect x="148" y="188" width="30" height="30" rx="4" />
+                        <!-- Hips -->
                         <rect x="52" y="208" width="96" height="36" rx="4" />
+                        <!-- Legs -->
                         <rect x="56" y="242" width="36" height="100" rx="4" />
                         <rect x="108" y="242" width="36" height="100" rx="4" />
+                        <!-- Feet -->
                         <rect x="50" y="340" width="44" height="22" rx="4" />
                         <rect x="106" y="340" width="44" height="22" rx="4" />
                     </g>
-                    <ellipse class="body-region" [class.region-selected]="isSelected(exteriorRegions[0])" cx="100" cy="42" rx="32" ry="38" (click)="selectRegion(exteriorRegions[0])"></ellipse>
-                    <ellipse class="body-region region-secondary" [class.region-selected]="isSelected(exteriorRegions[6])" cx="100" cy="34" rx="20" ry="22" (click)="selectRegion(exteriorRegions[6])"></ellipse>
-                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[1])" x="88" y="78" width="24" height="18" rx="2" (click)="selectRegion(exteriorRegions[1])"></rect>
-                    <polygon class="body-region" [class.region-selected]="isSelected(exteriorRegions[2])" points="58,98 36,108 28,188 50,188 62,128" (click)="selectRegion(exteriorRegions[2])"></polygon>
-                    <polygon class="body-region" [class.region-selected]="isSelected(exteriorRegions[2])" points="142,98 164,108 172,188 150,188 138,128" (click)="selectRegion(exteriorRegions[2])"></polygon>
-                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[3])" x="22" y="188" width="30" height="30" rx="4" (click)="selectRegion(exteriorRegions[3])"></rect>
-                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[3])" x="148" y="188" width="30" height="30" rx="4" (click)="selectRegion(exteriorRegions[3])"></rect>
-                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[4])" x="62" y="96" width="76" height="58" rx="2" (click)="selectRegion(exteriorRegions[4])"></rect>
-                    <rect class="body-region region-secondary" [class.region-selected]="isSelected(exteriorRegions[5])" x="92" y="96" width="16" height="148" rx="2" (click)="selectRegion(exteriorRegions[5])"></rect>
-                    <rect class="body-region" x="62" y="154" width="76" height="54" rx="2" (click)="setView('interior')"></rect>
-                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[7])" x="54" y="208" width="92" height="34" rx="2" (click)="selectRegion(exteriorRegions[7])"></rect>
-                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[8])" x="56" y="242" width="36" height="98" rx="2" (click)="selectRegion(exteriorRegions[8])"></rect>
-                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[8])" x="108" y="242" width="36" height="98" rx="2" (click)="selectRegion(exteriorRegions[8])"></rect>
-                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[9])" x="50" y="340" width="44" height="22" rx="4" (click)="selectRegion(exteriorRegions[9])"></rect>
-                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[9])" x="106" y="340" width="44" height="22" rx="4" (click)="selectRegion(exteriorRegions[9])"></rect>
-                    <g class="region-labels" pointer-events="none">
-                        <text x="100" y="42" text-anchor="middle" dominant-baseline="middle" font-size="7">Head</text>
-                        <text x="100" y="83" text-anchor="middle" dominant-baseline="middle" font-size="6">Neck</text>
-                        <text x="40" y="145" text-anchor="middle" dominant-baseline="middle" font-size="6">Arm</text>
-                        <text x="160" y="145" text-anchor="middle" dominant-baseline="middle" font-size="6">Arm</text>
-                        <text x="37" y="203" text-anchor="middle" dominant-baseline="middle" font-size="6">Hand</text>
-                        <text x="163" y="203" text-anchor="middle" dominant-baseline="middle" font-size="6">Hand</text>
-                        <text x="100" y="122" text-anchor="middle" dominant-baseline="middle" font-size="6">Chest</text>
-                        <text x="100" y="180" text-anchor="middle" dominant-baseline="middle" font-size="6">Abdomen</text>
-                        <text x="100" y="225" text-anchor="middle" dominant-baseline="middle" font-size="6">Hip</text>
-                        <text x="74" y="290" text-anchor="middle" dominant-baseline="middle" font-size="6">Leg</text>
-                        <text x="126" y="290" text-anchor="middle" dominant-baseline="middle" font-size="6">Leg</text>
-                        <text x="72" y="352" text-anchor="middle" dominant-baseline="middle" font-size="6">Foot</text>
-                        <text x="128" y="352" text-anchor="middle" dominant-baseline="middle" font-size="6">Foot</text>
+                    
+                    <!-- Head Features (Face) -->
+                    <g class="face-features">
+                        <!-- Eyes -->
+                        <ellipse class="body-region" [class.region-selected]="isSelected(exteriorRegions[1])" cx="88" cy="35" rx="5" ry="3" (click)="selectRegion(exteriorRegions[1])" />
+                        <ellipse class="body-region" [class.region-selected]="isSelected(exteriorRegions[1])" cx="112" cy="35" rx="5" ry="3" (click)="selectRegion(exteriorRegions[1])" />
+                        <!-- Ears -->
+                        <ellipse class="body-region" [class.region-selected]="isSelected(exteriorRegions[2])" cx="66" cy="42" rx="3" ry="6" (click)="selectRegion(exteriorRegions[2])" />
+                        <ellipse class="body-region" [class.region-selected]="isSelected(exteriorRegions[2])" cx="134" cy="42" rx="3" ry="6" (click)="selectRegion(exteriorRegions[2])" />
+                        <!-- Nose -->
+                        <polygon class="body-region" [class.region-selected]="isSelected(exteriorRegions[3])" points="100,38 97,48 103,48" (click)="selectRegion(exteriorRegions[3])" />
+                        <!-- Mouth -->
+                        <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[3])" x="90" y="55" width="20" height="4" rx="2" (click)="selectRegion(exteriorRegions[3])" />
                     </g>
+
+                    <ellipse class="body-region" [class.region-selected]="isSelected(exteriorRegions[0])" cx="100" cy="42" rx="32" ry="38" (click)="selectRegion(exteriorRegions[0])" opacity="0"></ellipse>
+                    
+                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[4])" x="88" y="78" width="24" height="18" rx="2" (click)="selectRegion(exteriorRegions[4])"></rect>
+                    
+                    <polygon class="body-region" [class.region-selected]="isSelected(exteriorRegions[5])" points="58,98 36,108 28,188 50,188 62,128" (click)="selectRegion(exteriorRegions[5])"></polygon>
+                    <polygon class="body-region" [class.region-selected]="isSelected(exteriorRegions[5])" points="142,98 164,108 172,188 150,188 138,128" (click)="selectRegion(exteriorRegions[5])"></polygon>
+                    
+                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[6])" x="22" y="188" width="30" height="30" rx="4" (click)="selectRegion(exteriorRegions[6])"></rect>
+                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[6])" x="148" y="188" width="30" height="30" rx="4" (click)="selectRegion(exteriorRegions[6])"></rect>
+                    
+                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[7])" x="62" y="96" width="76" height="58" rx="2" (click)="selectRegion(exteriorRegions[7])"></rect>
+                    
+                    <!-- Spine is secondary -->
+                    <rect class="body-region region-secondary" [class.region-selected]="isSelected(exteriorRegions[8])" x="96" y="96" width="8" height="114" rx="2" (click)="selectRegion(exteriorRegions[8])"></rect>
+                    
+                    <rect class="body-region" x="62" y="154" width="76" height="54" rx="2" (click)="setView('interior')"></rect>
+                    
+                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[9])" x="54" y="208" width="92" height="34" rx="2" (click)="selectRegion(exteriorRegions[9])"></rect>
+                    
+                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[10])" x="56" y="242" width="36" height="98" rx="2" (click)="selectRegion(exteriorRegions[10])"></rect>
+                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[10])" x="108" y="242" width="36" height="98" rx="2" (click)="selectRegion(exteriorRegions[10])"></rect>
+                    
+                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[11])" x="50" y="340" width="44" height="22" rx="4" (click)="selectRegion(exteriorRegions[11])"></rect>
+                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[11])" x="106" y="340" width="44" height="22" rx="4" (click)="selectRegion(exteriorRegions[11])"></rect>
                 </svg>
-                <button class="btn btn-sm w-100 mt-2" [class.btn-warning]="isSelected(exteriorRegions[10])" [class.btn-outline-secondary]="!isSelected(exteriorRegions[10])" (click)="selectRegion(exteriorRegions[10])">
+                <button class="btn btn-sm w-100 mt-2" [class.btn-warning]="isSelected(exteriorRegions[12])" [class.btn-outline-secondary]="!isSelected(exteriorRegions[12])" (click)="selectRegion(exteriorRegions[12])">
                     <i class="bi bi-person-fill me-1"></i>The Skin
                 </button>
             }
@@ -117,8 +134,8 @@
                     <rect class="body-region region-secondary" [class.region-selected]="isSelected(interiorRegions[1])" x="94" y="78" width="12" height="198" rx="3" (click)="selectRegion(interiorRegions[1])"></rect>
                     <ellipse class="body-region" [class.region-selected]="isSelected(interiorRegions[9])" cx="100" cy="84" rx="14" ry="9" (click)="selectRegion(interiorRegions[9])"></ellipse>
                     <ellipse class="body-region" [class.region-selected]="isSelected(interiorRegions[2])" cx="82" cy="120" rx="16" ry="18" (click)="selectRegion(interiorRegions[2])"></ellipse>
-                    <ellipse class="body-region" [class.region-selected]="isSelected(interiorRegions[4])" cx="72" cy="136" rx="16" ry="28" (click)="selectRegion(interiorRegions[4])"></ellipse>
-                    <ellipse class="body-region" [class.region-selected]="isSelected(interiorRegions[4])" cx="128" cy="136" rx="16" ry="28" (click)="selectRegion(interiorRegions[4])"></ellipse>
+                    <ellipse class="body-region" [class.region-selected]="isSelected(interiorRegions[4])" cx="72" cy="136" rx="15" ry="25" (click)="selectRegion(interiorRegions[4])"></ellipse>
+                    <ellipse class="body-region" [class.region-selected]="isSelected(interiorRegions[4])" cx="128" cy="136" rx="15" ry="25" (click)="selectRegion(interiorRegions[4])"></ellipse>
                     <ellipse class="body-region region-secondary" [class.region-selected]="isSelected(interiorRegions[3])" cx="100" cy="168" rx="34" ry="12" (click)="selectRegion(interiorRegions[3])"></ellipse>
                     <rect class="body-region" [class.region-selected]="isSelected(interiorRegions[5])" x="112" y="172" width="28" height="22" rx="4" (click)="selectRegion(interiorRegions[5])"></rect>
                     <ellipse class="body-region" [class.region-selected]="isSelected(interiorRegions[6])" cx="95" cy="210" rx="28" ry="26" (click)="selectRegion(interiorRegions[6])"></ellipse>
@@ -131,15 +148,6 @@
                         <text x="82" y="120" text-anchor="middle" dominant-baseline="middle" font-size="6">Heart</text>
                         <text x="72" y="136" text-anchor="middle" dominant-baseline="middle" font-size="5">Lung</text>
                         <text x="128" y="136" text-anchor="middle" dominant-baseline="middle" font-size="5">Lung</text>
-                        <text x="100" y="84" text-anchor="middle" dominant-baseline="middle" font-size="5">Endocrine</text>
-                        <text x="100" y="168" text-anchor="middle" dominant-baseline="middle" font-size="5">Arteries/Veins</text>
-                        <text x="126" y="183" text-anchor="middle" dominant-baseline="middle" font-size="5">Liver</text>
-                        <text x="95" y="210" text-anchor="middle" dominant-baseline="middle" font-size="5">Digestive</text>
-                        <text x="71" y="208" text-anchor="middle" dominant-baseline="middle" font-size="4">Kidney</text>
-                        <text x="129" y="208" text-anchor="middle" dominant-baseline="middle" font-size="4">Kidney</text>
-                        <text x="100" y="248" text-anchor="middle" dominant-baseline="middle" font-size="5">Lymphatic</text>
-                        <text x="100" y="291" text-anchor="middle" dominant-baseline="middle" font-size="5">Reproductive</text>
-                        <text x="100" y="140" text-anchor="middle" dominant-baseline="middle" font-size="5" fill="rgba(255,255,255,0.5)">Spine</text>
                     </g>
                 </svg>
             }
@@ -149,7 +157,7 @@
     <!-- Hint text -->
     <p class="hint-text text-center mt-2 small text-muted">
         @if (activeView === 'exterior') {
-            Click a body region to filter results. Click Abdomen to switch to Interior view.
+            Click a body region to filter results. Zoom in for head/face details.
         } @else {
             Click an organ to filter results.
         }

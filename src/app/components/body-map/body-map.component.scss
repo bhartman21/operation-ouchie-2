@@ -8,16 +8,17 @@
     max-height: 440px;
     display: block;
     margin: 0 auto;
-    pointer-events: none; // Disable direct SVG interaction to handle it via wrapper
+    pointer-events: none;
 }
 
 .map-viewport-container {
     position: relative;
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
     height: 440px;
     cursor: grab;
+    border: 1px solid var(--card-border);
 
     &.panning {
         cursor: grabbing;
@@ -46,10 +47,11 @@
     .btn {
         padding: 0.25rem 0.5rem;
         background: rgba(0, 0, 0, 0.6);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.2);
         &:hover {
-            background: var(--bs-warning);
-            color: black;
+            background: var(--accent-color);
+            color: #000;
         }
     }
 }
@@ -61,7 +63,6 @@
     transition: transform 0.1s ease-out;
     pointer-events: none;
 
-    // Re-enable pointer events for regions so clicks still work
     .body-region, .btn {
         pointer-events: auto;
     }
@@ -71,57 +72,68 @@
 .body-outline ellipse,
 .body-outline rect,
 .body-outline polygon {
-    fill: var(--card-bg, #1e1e1e);
-    stroke: var(--bs-secondary, #6c757d);
+    fill: var(--card-bg, #ffffff);
+    stroke: var(--secondary-color, #6c757d);
     stroke-width: 1.5;
 }
 
 // Clickable regions
 .body-region {
     fill: transparent;
-    stroke: var(--bs-info, #0dcaf0);
+    stroke: var(--primary-color, #0dcaf0);
     stroke-width: 1;
     stroke-dasharray: 3 2;
     cursor: pointer;
-    transition: fill 0.15s ease, stroke 0.15s ease;
+    transition: all 0.15s ease;
 
     &:hover,
     &.region-hovered {
-        fill: rgba(13, 202, 240, 0.2);
-        stroke: var(--bs-info, #0dcaf0);
+        fill: color-mix(in srgb, var(--primary-color), transparent 80%);
+        stroke: var(--primary-color);
         stroke-dasharray: none;
         stroke-width: 1.5;
     }
 
     &.region-selected {
-        fill: rgba(255, 193, 7, 0.3);
-        stroke: var(--bs-warning, #ffc107);
+        fill: color-mix(in srgb, var(--accent-color), transparent 70%);
+        stroke: var(--accent-color);
         stroke-dasharray: none;
         stroke-width: 2;
     }
 
     &.region-secondary {
         stroke-dasharray: 4 3;
-        opacity: 0.7;
+        opacity: 0.8;
     }
 }
 
 // Text labels
 .region-labels text {
-    fill: var(--bs-light, #f8f9fa);
+    fill: var(--body-color);
+    opacity: 0.8;
     font-family: inherit;
+    font-weight: 500;
     font-size: 6px;
     user-select: none;
 }
 
 // Selected badge close button
 .selected-badge .btn-close {
-    filter: invert(0);
-    opacity: 0.7;
-    &:hover { opacity: 1; }
+    filter: var(--theme-close-filter, none);
+}
+
+[data-theme="civdiv-light"] {
+    .map-viewport-container {
+        background: #e9ecef;
+    }
+    .region-labels text {
+        fill: #000;
+        font-weight: 600;
+    }
 }
 
 .hint-text {
     font-size: 0.7rem;
-    color: var(--bs-secondary);
+    color: var(--body-color);
+    opacity: 0.6;
 }

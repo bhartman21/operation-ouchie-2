@@ -5,13 +5,24 @@
 
     .form-control,
     .form-select {
-        background-color: var(--card-bg);
-        color: var(--body-color);
-        border-color: var(--card-border);
+        background-color: var(--card-bg) !important;
+        color: var(--body-color) !important;
+        border-color: var(--card-border) !important;
 
         &::placeholder {
-            color: var(--bs-gray-500);
+            color: var(--body-color);
+            opacity: 0.5;
         }
+    }
+
+    .form-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        color: var(--body-color);
+        opacity: 0.8;
     }
 }
 
@@ -23,20 +34,23 @@
 
 .dashboard-hero {
     position: relative;
-    z-index: 1100; // Higher than the main content row
+    z-index: 1100; 
     overflow: visible !important; 
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .dropdown-menu {
     border: 1px solid var(--card-border) !important;
     background-color: var(--card-bg) !important;
     padding: 0.5rem;
-    z-index: 2000 !important; // Absolute top level
+    z-index: 2000 !important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
 
     .dropdown-item {
         color: var(--body-color) !important;
         border-radius: 4px;
         margin: 2px 0;
+        font-size: 0.9rem;
         
         &:hover {
             background-color: var(--primary-color) !important;
@@ -46,6 +60,7 @@
     
     .dropdown-divider {
         margin: 0.5rem 0;
+        border-color: var(--card-border);
     }
 }
 

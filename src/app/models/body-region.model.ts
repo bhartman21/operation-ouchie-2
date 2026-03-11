@@ -13,18 +13,40 @@ export interface BodyRegion {
 export const BODY_REGIONS: BodyRegion[] = [
     // --- EXTERIOR REGIONS ---
     {
-        id: 'head-face',
-        label: 'Head / Face',
+        id: 'head-skull',
+        label: 'Skull / Head',
+        view: 'exterior',
+        subsystems: [
+            { system: 'Musculoskeletal System', subSystem: 'The Skull' },
+        ]
+    },
+    {
+        id: 'eyes',
+        label: 'Eyes',
         view: 'exterior',
         subsystems: [
             { system: 'The Eye', subSystem: 'Diseases of the Eye' },
             { system: 'The Eye', subSystem: 'Impairment of Central Visual Acuity' },
             { system: 'The Eye', subSystem: 'Impairment of Field Vision' },
             { system: 'The Eye', subSystem: 'Impairment of Muscle Function' },
+        ]
+    },
+    {
+        id: 'ears',
+        label: 'Ears',
+        view: 'exterior',
+        subsystems: [
             { system: 'The Ear', subSystem: 'Diseases of the Ear' },
+        ]
+    },
+    {
+        id: 'nose-mouth',
+        label: 'Nose / Mouth',
+        view: 'exterior',
+        subsystems: [
+            { system: 'Respiratory System', subSystem: 'Nose and Throat' },
             { system: 'Dental and Oral', subSystem: 'Dental and Oral Conditions' },
             { system: 'Other Sense Organs', subSystem: 'Smell and Taste' },
-            { system: 'Neurological', subSystem: 'Cranial Nerves' },
         ]
     },
     {
@@ -32,8 +54,8 @@ export const BODY_REGIONS: BodyRegion[] = [
         label: 'Neck',
         view: 'exterior',
         subsystems: [
-            { system: 'Respiratory System', subSystem: 'Nose and Throat' },
             { system: 'Muscle Injuries', subSystem: 'Torso and Neck' },
+            { system: 'Neurological', subSystem: 'Cranial Nerves' },
         ]
     },
     {
@@ -72,14 +94,6 @@ export const BODY_REGIONS: BodyRegion[] = [
         subsystems: [
             { system: 'Musculoskeletal System', subSystem: 'Spine' },
             { system: 'Musculoskeletal System', subSystem: 'The Coccyx' },
-        ]
-    },
-    {
-        id: 'skull',
-        label: 'Skull',
-        view: 'exterior',
-        subsystems: [
-            { system: 'Musculoskeletal System', subSystem: 'The Skull' },
         ]
     },
     {
