@@ -1,4 +1,70 @@
 .body-map-container {
+    padding: 0.5rem;
+}
+
+.body-svg {
     width: 100%;
-    position: relative;
+    height: auto;
+    max-height: 440px;
+    display: block;
+    margin: 0 auto;
+}
+
+// Decorative body outline
+.body-outline ellipse,
+.body-outline rect,
+.body-outline polygon {
+    fill: var(--card-bg, #1e1e1e);
+    stroke: var(--bs-secondary, #6c757d);
+    stroke-width: 1.5;
+}
+
+// Clickable regions
+.body-region {
+    fill: transparent;
+    stroke: var(--bs-info, #0dcaf0);
+    stroke-width: 1;
+    stroke-dasharray: 3 2;
+    cursor: pointer;
+    transition: fill 0.15s ease, stroke 0.15s ease;
+
+    &:hover,
+    &.region-hovered {
+        fill: rgba(13, 202, 240, 0.2);
+        stroke: var(--bs-info, #0dcaf0);
+        stroke-dasharray: none;
+        stroke-width: 1.5;
+    }
+
+    &.region-selected {
+        fill: rgba(255, 193, 7, 0.3);
+        stroke: var(--bs-warning, #ffc107);
+        stroke-dasharray: none;
+        stroke-width: 2;
+    }
+
+    &.region-secondary {
+        stroke-dasharray: 4 3;
+        opacity: 0.7;
+    }
+}
+
+// Text labels
+.region-labels text {
+    fill: var(--bs-light, #f8f9fa);
+    font-family: inherit;
+    font-size: 6px;
+    user-select: none;
+}
+
+// Selected badge close button
+.selected-badge .btn-close {
+    filter: invert(0);
+    opacity: 0.7;
+    &:hover { opacity: 1; }
+}
+
+.hint-text {
+    font-size: 0.7rem;
+    color: var(--bs-secondary);
 }
