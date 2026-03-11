@@ -106,15 +106,23 @@ body {
     transition: all 0.3s ease;
 
     .card-header {
-        background-color: rgba(0, 0, 0, 0.05) !important; 
+        background-color: rgba(var(--primary-color), 0.1) !important; 
         border-bottom: 1px solid var(--card-border) !important;
         border-top: 3px solid var(--accent-color) !important;
         
-        .text-muted {
+        small, .text-muted {
             color: var(--body-color) !important;
-            opacity: 0.7;
+            opacity: 0.9 !important;
+            font-weight: 700 !important;
         }
     }
+}
+
+// Tactical Table Reset
+.table {
+    --bs-table-bg: transparent !important;
+    --bs-table-color: var(--body-color) !important;
+    background-color: transparent !important;
 }
 
 // Light theme specific refinements
