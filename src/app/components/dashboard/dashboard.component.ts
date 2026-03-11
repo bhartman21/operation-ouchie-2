@@ -2,8 +2,8 @@ import { CommonModule, DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-
 import { DiagnosticCode, SystemGrouping } from '../../models/rating.model';
+import { BodyRegion } from '../../models/body-region.model';
 import { RatingDataService } from '../../services/rating-data.service';
 
 @Component({
@@ -23,15 +23,16 @@ export class DashboardComponent implements OnInit {
 
     // Filters
     searchCode: string = '';
-    searchCondition: string = ''; // Body Part / Condition
-
+    searchCondition: string = '';
     selectedSystem: string = '';
     selectedSubSystem: string = '';
+    selectedBodyRegion: BodyRegion | null = null;
+
+    // Modal state
+    selectedRating: DiagnosticCode | null = null;
 
     // Theme state
     currentTheme: string = 'Night Ops';
-
-
 
     constructor(
         private ratingService: RatingDataService,
@@ -39,31 +40,20 @@ export class DashboardComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        console.log('Dashboard Initializing...');
-        // Load initial data
         this.ratingService.getRatings().subscribe({
             next: (data) => {
-                console.log(`Ratings Loaded: ${data.length} items.`);
                 this.ratings = data;
-                // Initialize filteredRatings immediately to avoid empty state race
                 this.filteredRatings = data;
                 this.clearFilters();
-                console.log(`Filtered Ratings set to: ${this.filteredRatings.length} items.`);
             },
             error: (err) => {
                 console.error('Error loading ratings:', err);
             }
         });
 
-        // Load groupings
         this.ratingService.getSystemGroupings().subscribe(groupings => {
             this.systemGroupings = groupings;
-            console.log('System Groupings Loaded:', groupings.length);
         });
-
-        setTimeout(() => {
-            this.clearFilters();
-        }, 5);
     }
 
     onSystemChange(): void {
@@ -77,26 +67,24 @@ export class DashboardComponent implements OnInit {
         this.applyFilter();
     }
 
-    applyFilter(): void {
-        console.log('Applying Filter...');
-        console.log(`State -> Code: '${this.searchCode}', Condition: '${this.searchCondition}', System: '${this.selectedSystem}', Sub: '${this.selectedSubSystem}'`);
+    onBodyRegionSelected(region: BodyRegion | null): void {
+        this.selectedBodyRegion = region;
+        this.applyFilter();
+    }
 
-        // Safety check
+    applyFilter(): void {
         if (!this.ratings) {
-            console.warn('Ratings data is null/undefined in applyFilter');
             this.filteredRatings = [];
             return;
         }
 
-        let temp = [...this.ratings]; // Create shallow copy
+        let temp = [...this.ratings];
 
-        // Filter by Diagnostic Code
         if (this.searchCode && this.searchCode.trim() !== '') {
             const codeTerm = this.searchCode.toLowerCase().trim();
             temp = temp.filter(r => r.code.toLowerCase().includes(codeTerm));
         }
 
-        // Filter by Body Part / Condition
         if (this.searchCondition && this.searchCondition.trim() !== '') {
             const term = this.searchCondition.toLowerCase().trim();
             temp = temp.filter(r =>
@@ -106,7 +94,6 @@ export class DashboardComponent implements OnInit {
             );
         }
 
-        // Keep System filters as optional secondary filters
         if (this.selectedSystem && this.selectedSystem.trim() !== '') {
             temp = temp.filter(r => r.system === this.selectedSystem);
         }
@@ -115,8 +102,16 @@ export class DashboardComponent implements OnInit {
             temp = temp.filter(r => r.subSystem === this.selectedSubSystem);
         }
 
+        if (this.selectedBodyRegion) {
+            temp = temp.filter(r =>
+                this.selectedBodyRegion!.subsystems.some(s =>
+                    s.system === r.system &&
+                    (s.subSystem == null || s.subSystem === r.subSystem)
+                )
+            );
+        }
+
         this.filteredRatings = temp;
-        console.log(`Filter Result: ${this.filteredRatings.length} items found.`);
     }
 
     clearFilters(): void {
@@ -124,8 +119,12 @@ export class DashboardComponent implements OnInit {
         this.searchCondition = '';
         this.selectedSystem = '';
         this.selectedSubSystem = '';
-        this.onSystemChange(); // Resets subsystems
-        this.applyFilter();
+        this.selectedBodyRegion = null;
+        this.onSystemChange();
+    }
+
+    openModal(rating: DiagnosticCode): void {
+        this.selectedRating = rating;
     }
 
     setTheme(themeName: string, themeId: string) {
@@ -138,8 +137,6 @@ export class DashboardComponent implements OnInit {
     }
 
     getFragmentLink(link: string, code: string): string {
-        // Append Text Fragment for auto-highlighting in new tab
-        // Syntax: #:~:text=code
         return `${link}#:~:text=${code}`;
     }
 }
