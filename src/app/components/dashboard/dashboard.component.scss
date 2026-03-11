@@ -22,8 +22,31 @@
 }
 
 .dashboard-hero {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
-    overflow: hidden;
+    position: relative;
+    z-index: 1100; // Higher than the main content row
+    overflow: visible !important; 
+}
+
+.dropdown-menu {
+    border: 1px solid var(--card-border) !important;
+    background-color: var(--card-bg) !important;
+    padding: 0.5rem;
+    z-index: 2000 !important; // Absolute top level
+
+    .dropdown-item {
+        color: var(--body-color) !important;
+        border-radius: 4px;
+        margin: 2px 0;
+        
+        &:hover {
+            background-color: var(--primary-color) !important;
+            color: #fff !important;
+        }
+    }
+    
+    .dropdown-divider {
+        margin: 0.5rem 0;
+    }
 }
 
 .text-shadow {

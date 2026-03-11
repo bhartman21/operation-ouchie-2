@@ -38,6 +38,32 @@
     --hero-bg: url('../public/assets/images/hero-jungle.png');
 }
 
+[data-theme="civdiv-light"] {
+    // "CivDiv Light" (Crayon Theme)
+    --body-bg: #f8f9fa;
+    --body-color: #212529;
+    --primary-color: #2e86de; // Blue
+    --secondary-color: #e9ecef;
+    --accent-color: #ff4757; // Red
+    --card-bg: #ffffff;
+    --card-border: rgba(0, 0, 0, 0.1);
+    --nav-bg: #2e86de;
+    --hero-bg: linear-gradient(135deg, #2e86de 0%, #2ecc71 100%);
+}
+
+[data-theme="civdiv-dark"] {
+    // "CivDiv Dark" (Neon Crayon)
+    --body-bg: #0f172a;
+    --body-color: #f8f9fa;
+    --primary-color: #3fb618; // Green
+    --secondary-color: #1e293b;
+    --accent-color: #f1c40f; // Yellow
+    --card-bg: #1e293b;
+    --card-border: rgba(255, 255, 255, 0.1);
+    --nav-bg: #0f172a;
+    --hero-bg: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+}
+
 
 
 // SCSS Variables for Bootstrap Overrides (Mapped to fallback or static)
