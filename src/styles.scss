@@ -142,23 +142,6 @@ body {
         }
     }
     
-    // Fix table readability
-    .results-table {
-        background-color: #ffffff !important;
-        .result-row {
-            background-color: #ffffff !important;
-            color: #212529 !important;
-            &:hover {
-                background-color: #f8f9fa !important;
-            }
-            .condition-title {
-                color: #212529 !important;
-            }
-            .text-muted {
-                color: #6c757d !important;
-            }
-        }
-    }
 }
 
 // Common component updates

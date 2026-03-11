@@ -14,10 +14,13 @@ export const BODY_REGIONS: BodyRegion[] = [
     // --- EXTERIOR REGIONS ---
     {
         id: 'head-skull',
-        label: 'Skull / Head',
+        label: 'Skull / Face',
         view: 'exterior',
         subsystems: [
             { system: 'Musculoskeletal System', subSystem: 'The Skull' },
+            { system: 'Respiratory System', subSystem: 'Nose and Throat' },
+            { system: 'Dental and Oral', subSystem: 'Dental and Oral Conditions' },
+            { system: 'Other Sense Organs', subSystem: 'Smell and Taste' },
         ]
     },
     {
@@ -37,16 +40,6 @@ export const BODY_REGIONS: BodyRegion[] = [
         view: 'exterior',
         subsystems: [
             { system: 'The Ear', subSystem: 'Diseases of the Ear' },
-        ]
-    },
-    {
-        id: 'nose-mouth',
-        label: 'Nose / Mouth',
-        view: 'exterior',
-        subsystems: [
-            { system: 'Respiratory System', subSystem: 'Nose and Throat' },
-            { system: 'Dental and Oral', subSystem: 'Dental and Oral Conditions' },
-            { system: 'Other Sense Organs', subSystem: 'Smell and Taste' },
         ]
     },
     {

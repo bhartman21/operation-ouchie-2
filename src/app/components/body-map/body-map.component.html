@@ -86,38 +86,43 @@
                         <!-- Ears -->
                         <ellipse class="body-region" [class.region-selected]="isSelected(exteriorRegions[2])" cx="66" cy="42" rx="3" ry="6" (click)="selectRegion(exteriorRegions[2])" />
                         <ellipse class="body-region" [class.region-selected]="isSelected(exteriorRegions[2])" cx="134" cy="42" rx="3" ry="6" (click)="selectRegion(exteriorRegions[2])" />
-                        <!-- Nose -->
-                        <polygon class="body-region" [class.region-selected]="isSelected(exteriorRegions[3])" points="100,38 97,48 103,48" (click)="selectRegion(exteriorRegions[3])" />
-                        <!-- Mouth -->
-                        <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[3])" x="90" y="55" width="20" height="4" rx="2" (click)="selectRegion(exteriorRegions[3])" />
                     </g>
 
-                    <ellipse class="body-region" [class.region-selected]="isSelected(exteriorRegions[0])" cx="100" cy="42" rx="32" ry="38" (click)="selectRegion(exteriorRegions[0])" opacity="0"></ellipse>
+                    <!-- Main Head Area -->
+                    <ellipse class="body-region" [class.region-selected]="isSelected(exteriorRegions[0])" cx="100" cy="42" rx="32" ry="38" (click)="selectRegion(exteriorRegions[0])" opacity="0.1"></ellipse>
                     
-                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[4])" x="88" y="78" width="24" height="18" rx="2" (click)="selectRegion(exteriorRegions[4])"></rect>
+                    <!-- Neck -->
+                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[3])" x="88" y="78" width="24" height="18" rx="2" (click)="selectRegion(exteriorRegions[3])"></rect>
                     
-                    <polygon class="body-region" [class.region-selected]="isSelected(exteriorRegions[5])" points="58,98 36,108 28,188 50,188 62,128" (click)="selectRegion(exteriorRegions[5])"></polygon>
-                    <polygon class="body-region" [class.region-selected]="isSelected(exteriorRegions[5])" points="142,98 164,108 172,188 150,188 138,128" (click)="selectRegion(exteriorRegions[5])"></polygon>
+                    <!-- Arms -->
+                    <polygon class="body-region" [class.region-selected]="isSelected(exteriorRegions[4])" points="58,98 36,108 28,188 50,188 62,128" (click)="selectRegion(exteriorRegions[4])"></polygon>
+                    <polygon class="body-region" [class.region-selected]="isSelected(exteriorRegions[4])" points="142,98 164,108 172,188 150,188 138,128" (click)="selectRegion(exteriorRegions[4])"></polygon>
                     
-                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[6])" x="22" y="188" width="30" height="30" rx="4" (click)="selectRegion(exteriorRegions[6])"></rect>
-                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[6])" x="148" y="188" width="30" height="30" rx="4" (click)="selectRegion(exteriorRegions[6])"></rect>
+                    <!-- Hands -->
+                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[5])" x="22" y="188" width="30" height="30" rx="4" (click)="selectRegion(exteriorRegions[5])"></rect>
+                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[5])" x="148" y="188" width="30" height="30" rx="4" (click)="selectRegion(exteriorRegions[5])"></rect>
                     
-                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[7])" x="62" y="96" width="76" height="58" rx="2" (click)="selectRegion(exteriorRegions[7])"></rect>
+                    <!-- Chest -->
+                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[6])" x="62" y="96" width="76" height="58" rx="2" (click)="selectRegion(exteriorRegions[6])"></rect>
                     
-                    <!-- Spine is secondary -->
-                    <rect class="body-region region-secondary" [class.region-selected]="isSelected(exteriorRegions[8])" x="96" y="96" width="8" height="114" rx="2" (click)="selectRegion(exteriorRegions[8])"></rect>
+                    <!-- Spine -->
+                    <rect class="body-region region-secondary" [class.region-selected]="isSelected(exteriorRegions[7])" x="96" y="96" width="8" height="114" rx="2" (click)="selectRegion(exteriorRegions[7])"></rect>
                     
+                    <!-- Abdomen (Interior trigger) -->
                     <rect class="body-region" x="62" y="154" width="76" height="54" rx="2" (click)="setView('interior')"></rect>
                     
-                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[9])" x="54" y="208" width="92" height="34" rx="2" (click)="selectRegion(exteriorRegions[9])"></rect>
+                    <!-- Hips -->
+                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[8])" x="54" y="208" width="92" height="34" rx="2" (click)="selectRegion(exteriorRegions[8])"></rect>
                     
-                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[10])" x="56" y="242" width="36" height="98" rx="2" (click)="selectRegion(exteriorRegions[10])"></rect>
-                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[10])" x="108" y="242" width="36" height="98" rx="2" (click)="selectRegion(exteriorRegions[10])"></rect>
+                    <!-- Legs -->
+                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[9])" x="56" y="242" width="36" height="98" rx="2" (click)="selectRegion(exteriorRegions[9])"></rect>
+                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[9])" x="108" y="242" width="36" height="98" rx="2" (click)="selectRegion(exteriorRegions[9])"></rect>
                     
-                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[11])" x="50" y="340" width="44" height="22" rx="4" (click)="selectRegion(exteriorRegions[11])"></rect>
-                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[11])" x="106" y="340" width="44" height="22" rx="4" (click)="selectRegion(exteriorRegions[11])"></rect>
+                    <!-- Feet -->
+                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[10])" x="50" y="340" width="44" height="22" rx="4" (click)="selectRegion(exteriorRegions[10])"></rect>
+                    <rect class="body-region" [class.region-selected]="isSelected(exteriorRegions[10])" x="106" y="340" width="44" height="22" rx="4" (click)="selectRegion(exteriorRegions[10])"></rect>
                 </svg>
-                <button class="btn btn-sm w-100 mt-2" [class.btn-warning]="isSelected(exteriorRegions[12])" [class.btn-outline-secondary]="!isSelected(exteriorRegions[12])" (click)="selectRegion(exteriorRegions[12])">
+                <button class="btn btn-sm w-100 mt-2" [class.btn-warning]="isSelected(exteriorRegions[11])" [class.btn-outline-secondary]="!isSelected(exteriorRegions[11])" (click)="selectRegion(exteriorRegions[11])">
                     <i class="bi bi-person-fill me-1"></i>The Skin
                 </button>
             }
