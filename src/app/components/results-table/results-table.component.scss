@@ -1,0 +1,19 @@
+.results-table {
+    color: var(--body-color);
+    thead th {
+        color: var(--bs-secondary);
+        border-bottom-color: var(--card-border);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    .result-row {
+        cursor: pointer;
+        border-bottom: 1px solid var(--card-border);
+        transition: background-color 0.1s ease;
+        &:hover { background-color: rgba(255, 255, 255, 0.05); }
+        td { vertical-align: middle; padding: 0.5rem 0.75rem; }
+    }
+    .condition-title { font-size: 0.9rem; color: var(--body-color); }
+}
+.result-count { font-size: 0.8rem; }
