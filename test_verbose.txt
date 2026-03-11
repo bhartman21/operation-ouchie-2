@@ -1,0 +1,45 @@
+﻿
+[1m[46m RUN [49m[22m [36mv4.0.18 [39m[90mC:/Users/willi/SynologyDrive/__Personal-Code/AntiGravity-001/operation-ouchie-2[39m
+
+ [32mΓ£ô[39m src/app/models/body-region.model.spec.ts[2m > [22mBODY_REGIONS[2m > [22mshould have regions for both views[32m 2[2mms[22m[39m
+ [32mΓ£ô[39m src/app/models/body-region.model.spec.ts[2m > [22mBODY_REGIONS[2m > [22mshould have unique ids[32m 1[2mms[22m[39m
+ [32mΓ£ô[39m src/app/models/body-region.model.spec.ts[2m > [22mBODY_REGIONS[2m > [22meach region should have at least one subsystem mapping[32m 1[2mms[22m[39m
+ [32mΓ£ô[39m src/app/models/body-region.model.spec.ts[2m > [22mBODY_REGIONS[2m > [22meach region should have an id, label, view, and subsystems[32m 6[2mms[22m[39m
+ [31m├ù[39m src/app/components/results-table/results-table.component.spec.ts[2m > [22mResultsTableComponent[2m > [22mshould create[32m 6[2mms[22m[39m
+[31m   ΓåÆ Need to call TestBed.initTestEnvironment() first[39m
+ [31m├ù[39m src/app/components/results-table/results-table.component.spec.ts[2m > [22mResultsTableComponent[2m > [22mshould display the correct number of rows[32m 1[2mms[22m[39m
+[31m   ΓåÆ Need to call TestBed.initTestEnvironment() first[39m
+ [31m├ù[39m src/app/components/results-table/results-table.component.spec.ts[2m > [22mResultsTableComponent[2m > [22mshould emit rowClicked when a row is clicked[32m 1[2mms[22m[39m
+[31m   ΓåÆ Need to call TestBed.initTestEnvironment() first[39m
+ [31m├ù[39m src/app/components/results-table/results-table.component.spec.ts[2m > [22mResultsTableComponent[2m > [22mshould show result count[32m 0[2mms[22m[39m
+[31m   ΓåÆ Need to call TestBed.initTestEnvironment() first[39m
+ [31m├ù[39m src/app/components/results-table/results-table.component.spec.ts[2m > [22mResultsTableComponent[2m > [22mshould show no-results message when ratings is empty[32m 0[2mms[22m[39m
+[31m   ΓåÆ Need to call TestBed.initTestEnvironment() first[39m
+ [31m├ù[39m src/app/components/criteria-modal/criteria-modal.component.spec.ts[2m > [22mCriteriaModalComponent[2m > [22mshould create[32m 3[2mms[22m[39m
+[31m   ΓåÆ Need to call TestBed.initTestEnvironment() first[39m
+ [31m├ù[39m src/app/components/criteria-modal/criteria-modal.component.spec.ts[2m > [22mCriteriaModalComponent[2m > [22mshould display the diagnostic code in the modal title[32m 1[2mms[22m[39m
+[31m   ΓåÆ Need to call TestBed.initTestEnvironment() first[39m
+ [31m├ù[39m src/app/components/criteria-modal/criteria-modal.component.spec.ts[2m > [22mCriteriaModalComponent[2m > [22mshould display all criteria rows[32m 0[2mms[22m[39m
+[31m   ΓåÆ Need to call TestBed.initTestEnvironment() first[39m
+ [31m├ù[39m src/app/components/criteria-modal/criteria-modal.component.spec.ts[2m > [22mCriteriaModalComponent[2m > [22mshould display notes when present[32m 0[2mms[22m[39m
+[31m   ΓåÆ Need to call TestBed.initTestEnvironment() first[39m
+ [31m├ù[39m src/app/components/criteria-modal/criteria-modal.component.spec.ts[2m > [22mCriteriaModalComponent[2m > [22mshould display 38CFR link when link is present[32m 0[2mms[22m[39m
+[31m   ΓåÆ Need to call TestBed.initTestEnvironment() first[39m
+ [31m├ù[39m src/app/components/criteria-modal/criteria-modal.component.spec.ts[2m > [22mCriteriaModalComponent[2m > [22mshould return correct fragment link[32m 0[2mms[22m[39m
+[31m   ΓåÆ Need to call TestBed.initTestEnvironment() first[39m
+ [31m├ù[39m src/app/components/body-map/body-map.component.spec.ts[2m > [22mBodyMapComponent[2m > [22mshould create[32m 5[2mms[22m[39m
+[31m   ΓåÆ Need to call TestBed.initTestEnvironment() first[39m
+ [31m├ù[39m src/app/components/body-map/body-map.component.spec.ts[2m > [22mBodyMapComponent[2m > [22mshould default to exterior view[32m 1[2mms[22m[39m
+[31m   ΓåÆ Need to call TestBed.initTestEnvironment() first[39m
+ [31m├ù[39m src/app/components/body-map/body-map.component.spec.ts[2m > [22mBodyMapComponent[2m > [22mshould switch to interior view[32m 1[2mms[22m[39m
+[31m   ΓåÆ Need to call TestBed.initTestEnvironment() first[39m
+ [31m├ù[39m src/app/components/body-map/body-map.component.spec.ts[2m > [22mBodyMapComponent[2m > [22mshould emit regionSelected when a region is clicked[32m 0[2mms[22m[39m
+[31m   ΓåÆ Need to call TestBed.initTestEnvironment() first[39m
+ [31m├ù[39m src/app/components/body-map/body-map.component.spec.ts[2m > [22mBodyMapComponent[2m > [22mshould deselect region when clicked again[32m 0[2mms[22m[39m
+[31m   ΓåÆ Need to call TestBed.initTestEnvironment() first[39m
+
+[2m Test Files [22m [1m[31m4 failed[39m[22m[2m | [22m[1m[32m1 passed[39m[22m[90m (5)[39m
+[2m      Tests [22m [1m[31m16 failed[39m[22m[2m | [22m[1m[32m4 passed[39m[22m[90m (20)[39m
+[2m   Start at [22m 07:10:19
+[2m   Duration [22m 750ms[2m (transform 367ms, setup 0ms, import 1.61s, tests 38ms, environment 1ms)[22m
+

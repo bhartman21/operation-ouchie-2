@@ -9,17 +9,29 @@
                 <h1 class="display-6 fw-bold text-uppercase text-white text-shadow" style="letter-spacing: 2px;">
                     <i class="bi bi-crosshair me-2"></i>Operation: Ouchie! 2.0
                 </h1>
-                <div class="dropdown">
-                    <button class="btn btn-outline-light dropdown-toggle backdrop-blur" type="button"
-                        id="themeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-palette me-2"></i>Loadout: {{ currentTheme }}
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="themeDropdown"
-                        style="background-color: var(--card-bg); border-color: var(--card-border);">
-                        <li><button class="dropdown-item text-white" (click)="setTheme('Night Ops', 'default')">Night Ops (Default)</button></li>
-                        <li><button class="dropdown-item text-white" (click)="setTheme('Oorah!', 'usmc')">Oorah!</button></li>
-                        <li><button class="dropdown-item text-white" (click)="setTheme('Jungle Standard', 'jungle')">Jungle Standard</button></li>
-                    </ul>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="btn-group backdrop-blur rounded overflow-hidden shadow-sm" style="border: 1px solid rgba(255,255,255,0.2);">
+                        <button class="btn btn-sm" [class.btn-warning]="showBodyMap()" [class.btn-outline-light]="!showBodyMap()" 
+                            (click)="showBodyMap.set(!showBodyMap())" title="Toggle Body Map">
+                            <i class="bi bi-person-bounding-box"></i>
+                        </button>
+                        <button class="btn btn-sm" [class.btn-warning]="showFilters()" [class.btn-outline-light]="!showFilters()" 
+                            (click)="showFilters.set(!showFilters())" title="Toggle Filters">
+                            <i class="bi bi-funnel"></i>
+                        </button>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-light dropdown-toggle backdrop-blur" type="button"
+                            id="themeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-palette me-2"></i>Loadout: {{ currentTheme }}
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="themeDropdown"
+                            style="background-color: var(--card-bg); border-color: var(--card-border);">
+                            <li><button class="dropdown-item text-white" (click)="setTheme('Night Ops', 'default')">Night Ops (Default)</button></li>
+                            <li><button class="dropdown-item text-white" (click)="setTheme('Oorah!', 'usmc')">Oorah!</button></li>
+                            <li><button class="dropdown-item text-white" (click)="setTheme('Jungle Standard', 'jungle')">Jungle Standard</button></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -29,12 +41,15 @@
     <div class="row g-3 mb-4">
 
         <!-- Body Map Column -->
-        <div class="col-12 col-lg-3">
+        <div class="col-12 col-lg-3" [class.d-none]="!showBodyMap()">
             <div class="card filter-card h-100">
-                <div class="card-header py-2">
+                <div class="card-header py-2 d-flex justify-content-between align-items-center">
                     <small class="text-muted text-uppercase fw-bold" style="letter-spacing: 0.05em;">
                         <i class="bi bi-person-bounding-box me-1"></i>Body Region
                     </small>
+                    <button class="btn btn-link btn-sm p-0 text-muted" (click)="showBodyMap.set(false)">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
                 </div>
                 <div class="card-body p-2">
                     <app-body-map (regionSelected)="onBodyRegionSelected($event)" />
@@ -43,12 +58,15 @@
         </div>
 
         <!-- Filters Column -->
-        <div class="col-12 col-lg-9">
+        <div [class]="showBodyMap() ? 'col-12 col-lg-9' : 'col-12'" [class.d-none]="!showFilters()">
             <div class="card filter-card h-100">
-                <div class="card-header py-2">
+                <div class="card-header py-2 d-flex justify-content-between align-items-center">
                     <small class="text-muted text-uppercase fw-bold" style="letter-spacing: 0.05em;">
                         <i class="bi bi-funnel me-1"></i>Filters
                     </small>
+                    <button class="btn btn-link btn-sm p-0 text-muted" (click)="showFilters.set(false)">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
                 </div>
                 <div class="card-body">
                     <!-- Primary Text Filters -->

@@ -1,5 +1,5 @@
 import { CommonModule, DOCUMENT } from '@angular/common';
-import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { DiagnosticCode, SystemGrouping } from '../../models/rating.model';
@@ -38,6 +38,10 @@ export class DashboardComponent implements OnInit {
 
     // Theme state
     currentTheme: string = 'Night Ops';
+
+    // Visibility state
+    showBodyMap = signal(true);
+    showFilters = signal(true);
 
     constructor(
         private ratingService: RatingDataService,

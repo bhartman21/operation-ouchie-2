@@ -1,6 +1,7 @@
 .filter-card {
     border: none;
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    transition: all 0.3s ease;
 
     .form-control,
     .form-select {
@@ -12,4 +13,19 @@
             color: var(--bs-gray-500);
         }
     }
+}
+
+.backdrop-blur {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+    overflow: hidden;
+}
+
+.text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }

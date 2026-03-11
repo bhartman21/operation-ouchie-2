@@ -1,0 +1,30 @@
+﻿
+ RUN  v4.0.18 C:/Users/willi/SynologyDrive/__Personal-Code/AntiGravity-001/operation-ouchie-2
+
+ Γ£ô src/app/models/body-region.model.spec.ts (4 tests) 12ms
+ Γ¥» src/app/components/criteria-modal/criteria-modal.component.spec.ts (6 tests | 6 failed) 7ms
+     ├ù should create 4ms
+     ├ù should display the diagnostic code in the modal title 1ms
+     ├ù should display all criteria rows 0ms
+     ├ù should display notes when present 0ms
+     ├ù should display 38CFR link when link is present 0ms
+     ├ù should return correct fragment link 0ms
+ Γ¥» src/app/components/results-table/results-table.component.spec.ts (5 tests | 5 failed) 7ms
+     ├ù should create 3ms
+     ├ù should display the correct number of rows 1ms
+     ├ù should emit rowClicked when a row is clicked 0ms
+     ├ù should show result count 0ms
+     ├ù should show no-results message when ratings is empty 0ms
+ Γ¥» src/app/components/body-map/body-map.component.spec.ts (5 tests | 5 failed) 8ms
+     ├ù should create 4ms
+     ├ù should default to exterior view 1ms
+     ├ù should switch to interior view 1ms
+     ├ù should emit regionSelected when a region is clicked 0ms
+     ├ù should deselect region when clicked again 0ms
+ Γ¥» src/app/app.spec.ts (0 test)
+
+ Test Files  4 failed | 1 passed (5)
+      Tests  16 failed | 4 passed (20)
+   Start at  07:09:12
+   Duration  693ms (transform 382ms, setup 0ms, import 1.47s, tests 34ms, environment 1ms)
+
