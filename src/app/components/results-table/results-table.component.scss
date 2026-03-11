@@ -35,7 +35,7 @@
             color: var(--body-color) !important; 
             opacity: 0.8; // Increased opacity for visibility
             border-bottom: 2px solid var(--accent-color);
-            background-color: rgba(var(--primary-color), 0.1) !important;
+            background-color: color-mix(in srgb, var(--primary-color), transparent 90%) !important;
             box-shadow: inset 0 -1px 0 var(--card-border);
         }
     }
@@ -48,7 +48,7 @@
         color: var(--body-color) !important;
         
         &:hover { 
-            background-color: rgba(var(--primary-color), 0.15) !important;
+            background-color: color-mix(in srgb, var(--primary-color), transparent 85%) !important;
             transform: scale(1.002);
             z-index: 5;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
@@ -92,7 +92,7 @@
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.8rem; 
     padding: 0.75rem 1rem;
-    background-color: rgba(var(--primary-color), 0.1);
+    background-color: color-mix(in srgb, var(--primary-color), transparent 90%);
     border-bottom: 1px solid var(--card-border);
     color: var(--body-color) !important;
     opacity: 1; // Full opacity for visibility

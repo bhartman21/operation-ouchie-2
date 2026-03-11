@@ -72,9 +72,10 @@
 .body-outline ellipse,
 .body-outline rect,
 .body-outline polygon {
-    fill: var(--card-bg, #ffffff);
-    stroke: var(--secondary-color, #6c757d);
+    fill: var(--body-bg); // Make body a 'cutout' of the background
+    stroke: var(--body-color); // Outline with text color
     stroke-width: 1.5;
+    opacity: 0.3; // Dim enough to not overpower selections
 }
 
 // Clickable regions
