@@ -1,19 +1,24 @@
 import { CommonModule, DOCUMENT } from '@angular/common';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { DiagnosticCode, SystemGrouping } from '../../models/rating.model';
 import { BodyRegion } from '../../models/body-region.model';
 import { RatingDataService } from '../../services/rating-data.service';
+import { BodyMapComponent } from '../body-map/body-map.component';
+import { ResultsTableComponent } from '../results-table/results-table.component';
+import { CriteriaModalComponent } from '../criteria-modal/criteria-modal.component';
 
 @Component({
     selector: 'app-dashboard',
     standalone: true,
-    imports: [CommonModule, FormsModule],
+    imports: [CommonModule, FormsModule, BodyMapComponent, ResultsTableComponent, CriteriaModalComponent],
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+
+    @ViewChild('modalTriggerBtn') modalTriggerBtn!: ElementRef;
 
     ratings: DiagnosticCode[] = [];
     filteredRatings: DiagnosticCode[] = [];
@@ -125,6 +130,9 @@ export class DashboardComponent implements OnInit {
 
     openModal(rating: DiagnosticCode): void {
         this.selectedRating = rating;
+        setTimeout(() => {
+            this.modalTriggerBtn?.nativeElement?.click();
+        }, 0);
     }
 
     setTheme(themeName: string, themeId: string) {
