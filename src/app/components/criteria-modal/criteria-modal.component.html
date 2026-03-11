@@ -1,0 +1,54 @@
+<div class="modal fade" id="criteriaModal" tabindex="-1"
+    aria-labelledby="criteriaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            @if (rating) {
+                <div class="modal-header">
+                    <h5 class="modal-title" id="criteriaModalLabel">
+                        <span class="badge bg-primary me-2">{{ rating.code }}</span>
+                        {{ rating.condition }}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="breadcrumb-label text-muted small mb-3">
+                        {{ rating.system }}
+                        @if (rating.subSystem) { <span class="mx-1">›</span> {{ rating.subSystem }} }
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table table-sm criteria-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 90px">Rating %</th>
+                                    <th>Criteria</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (criterion of rating.criteria; track criterion.percent) {
+                                    <tr>
+                                        <td class="rating-percent">{{ criterion.percent }}%</td>
+                                        <td class="criteria-desc">{{ criterion.description }}</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @if (rating.notes) {
+                        <div class="notes-section mt-3 p-3">
+                            <p class="mb-0 small"><i class="bi bi-info-circle me-1"></i>{{ rating.notes }}</p>
+                        </div>
+                    }
+                </div>
+                <div class="modal-footer">
+                    @if (rating.link) {
+                        <a [href]="getFragmentLink(rating.link, rating.code)"
+                            target="_blank" class="btn btn-outline-info cfr-link">
+                            View 38 CFR <i class="bi bi-box-arrow-up-right ms-1"></i>
+                        </a>
+                    }
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+.modal-content { background-color: var(--card-bg); border-color: var(--card-border); }
+.modal-header { border-bottom-color: var(--card-border); }
+.modal-footer { border-top-color: var(--card-border); }
+.modal-title { color: var(--body-color); font-size: 1rem; }
+
+.criteria-table {
+    color: var(--body-color);
+    thead th { color: var(--bs-secondary); border-bottom-color: var(--card-border); font-size: 0.8rem; }
+    tbody tr { border-color: var(--card-border); }
+    .rating-percent { font-weight: bold; color: var(--bs-warning); font-size: 1rem; }
+    .criteria-desc { color: var(--body-color); font-size: 0.875rem; }
+}
+
+.notes-section {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 0 4px 4px 0;
+    color: var(--bs-secondary);
+}
