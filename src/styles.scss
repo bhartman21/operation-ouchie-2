@@ -3,157 +3,280 @@
     // Default Theme: "Night Ops" (Tactical Dark)
     --body-bg: #121212;
     --body-color: #e0e0e0;
-    --primary-color: #4e5d6c; 
+    --primary-color: #4e5d6c; // Slate Blue-Grey
     --secondary-color: #2b3e50;
-    --accent-color: #3fb618; 
+    --accent-color: #3fb618; // Success Green
     --card-bg: #1e1e1e;
     --card-border: #444;
-    --nav-bg: #1f2933; 
-    --hero-bg: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+    --nav-bg: #1f2933; // Darker slate
+    --hero-bg: url('../public/assets/images/hero-default.png');
 }
 
+/* Tactical Themes */
 [data-theme="usmc"] {
-    --body-bg: #2b2b24; 
-    --body-color: #fceea7; 
-    --primary-color: #991b1e; 
-    --secondary-color: #3e3e32; 
-    --accent-color: #f1c40f; 
+    --body-bg: #2b2b24;
+    --body-color: #fceea7;
+    --primary-color: #991b1e;
+    --secondary-color: #3e3e32;
+    --accent-color: #f1c40f;
     --card-bg: #36362d;
-    --card-border: #991b1e; 
+    --card-border: #991b1e;
     --nav-bg: #991b1e;
-    --hero-bg: linear-gradient(135deg, #991b1e 0%, #f1c40f 100%);
+    --hero-bg: url('../public/assets/images/hero-oorah.png');
 }
 
 [data-theme="jungle"] {
-    --body-bg: #1a2118; 
+    --body-bg: #1a2118;
     --body-color: #d1d8d0;
-    --primary-color: #3e4c36; 
+    --primary-color: #3e4c36;
     --secondary-color: #2a3324;
-    --accent-color: #8b5a2b; 
+    --accent-color: #8b5a2b;
     --card-bg: #242b20;
     --card-border: #3e4c36;
     --nav-bg: #2a3324;
-    --hero-bg: linear-gradient(135deg, #1a2118 0%, #3e4c36 100%);
+    --hero-bg: url('../public/assets/images/hero-jungle.png');
 }
 
-[data-theme="civdiv-light"] {
+[data-theme=civdiv-light] {
     --body-bg: #f1f3f5;
     --body-color: #1a1a1b;
-    --primary-color: #2e86de; 
-    --secondary-color: #adb5bd; 
-    --accent-color: #ff4757; 
+    --primary-color: #2e86de;
+    --secondary-color: #adb5bd;
+    --accent-color: #ff4757;
     --card-bg: #ffffff;
     --card-border: #dee2e6;
     --nav-bg: #2e86de;
     --hero-bg: linear-gradient(135deg, #2e86de 0%, #2ecc71 100%);
-    
-    // Explicit overrides for Bootstrap's internal variables
     --bs-body-bg: #f1f3f5;
     --bs-body-color: #1a1a1b;
     --bs-secondary-color: #495057;
     --bs-card-bg: #ffffff;
     --bs-card-cap-bg: #f8f9fa;
-    --bs-border-color: #dee2e6;
+    --bs-border-color: #dee2e6
+}
+
+[data-theme=civdiv-light] .text-muted {
+    color: #495057 !important
+}
+
+[data-theme=civdiv-light] .form-label {
+    color: #212529 !important;
+    font-weight: 600
+}
+
+[data-theme=civdiv-light] .badge.bg-primary {
+    background-color: #2e86de !important
+}
+
+[data-theme=civdiv-light] .badge.bg-warning {
+    background-color: #f4c40f !important;
+    color: #000 !important
+}
+
+[data-theme=civdiv-light] .btn-outline-warning {
+    color: #856404;
+    border-color: #ffc107
+}
+
+[data-theme=civdiv-light] .btn-outline-warning:hover {
+    background-color: #ffc107;
+    color: #000
+}
+
+
+[data-theme=civdiv-light] .card {
+    border: 1px solid #dee2e6;
+    box-shadow: 0 .125rem .25rem #00000013
+}
+
+[data-theme=civdiv-light] .card-header {
+    background-color: #f8f9fa !important;
+    border-bottom: 2px solid #dee2e6 !important;
+    border-top: 3px solid #dc3545 !important;
+    color: #212529 !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5px
+}
+
+[data-theme=civdiv-light] .form-control,
+[data-theme=civdiv-light] .form-select {
+    border-color: #dee2e6 !important
+}
+
+[data-theme=civdiv-light] .form-control:focus,
+[data-theme=civdiv-light] .form-select:focus {
+    border-color: #1e5d54 !important;
+    box-shadow: 0 0 0 .25rem #1e5d5440
+}
+
+[data-theme=civdiv-light] .btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #212529
+}
+
+[data-theme=civdiv-light] .btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00
+}
+
+[data-theme=civdiv-light] .table-container {
+    background-color: #fff
+}
+
+[data-theme=civdiv-light] .table thead th {
+    background-color: #f8f9fa;
+    color: #495057;
+    border-bottom: 2px solid #dee2e6
+}
+
+[data-theme=civdiv-light] .dropdown-menu {
+    background-color: #fff !important;
+    border-color: #dee2e6 !important
+}
+
+[data-theme=civdiv-light] .dropdown-item {
+    color: #212529 !important
+}
+
+[data-theme=civdiv-light] .dropdown-item:hover {
+    background-color: #1e1e1f !important
 }
 
 [data-theme="civdiv-dark"] {
     --body-bg: #0f172a;
     --body-color: #f8f9fa;
-    --primary-color: #3fb618; 
+    --primary-color: #3fb618;
     --secondary-color: #1e293b;
-    --accent-color: #f1c40f; 
+    --accent-color: #f1c40f;
     --card-bg: #1e293b;
     --card-border: rgba(255, 255, 255, 0.1);
     --nav-bg: #0f172a;
     --hero-bg: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-    
-    --bs-body-bg: #0f172a;
-    --bs-body-color: #f8f9fa;
-    --bs-secondary-color: #adb5bd;
+
+    // Dark mode specific enhancements
+    .text-muted {
+        color: #94a3b8 !important;
+    }
+
+    .badge.bg-primary {
+        background-color: #3b82f6 !important;
+    }
+
+    .badge.bg-warning {
+        background-color: #ffc107 !important;
+        color: #000 !important;
+    }
+
+
+    .card {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card-header {
+        background-color: #151921 !important;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
+        border-top: 3px solid #ffc107 !important;
+        color: #ffc107 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-weight: 600;
+    }
+
+    .dropdown-menu {
+        background-color: #151921 !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .dropdown-item {
+        color: #f8f9fa !important;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+        }
+    }
 }
 
-// Global Styles using CSS Variables
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/maps";
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/root";
+// SCSS Variables for Bootstrap Overrides (Mapped to fallback or static)
+$body-bg: #121212;
+$body-color: #e0e0e0;
+
+// Import Bootstrap
 @import "bootstrap/scss/bootstrap";
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
+// Global Styles using CSS Variables
 body {
     background-color: var(--body-bg);
     color: var(--body-color);
     transition: background-color 0.3s ease, color 0.3s ease;
-    min-height: 100vh;
 }
 
 .dashboard-hero {
-    background: var(--hero-bg);
-    background-size: cover;
-    background-position: center;
-    transition: background 0.5s ease;
+    background-color: var(--nav-bg) !important;
+    background-image: var(--hero-bg) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+
+    .overlay {
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%) !important;
+        z-index: 1;
+    }
 
     .text-shadow {
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     }
 }
 
 .card {
     background-color: var(--card-bg) !important;
-    color: var(--body-color) !important;
     border: 1px solid var(--card-border) !important;
+    margin-bottom: 20px;
     transition: all 0.3s ease;
 
     .card-header {
-        background-color: color-mix(in srgb, var(--primary-color), transparent 90%) !important;
-        border-bottom: 1px solid var(--card-border) !important;
-        border-top: 3px solid var(--accent-color) !important;
-        
-        small, .text-muted {
-            color: var(--body-color) !important;
-            opacity: 0.9 !important;
-            font-weight: 700 !important;
-        }
+        background-color: rgba(0, 0, 0, 0.2); // Semi-transparent dark
+        border-bottom: 1px solid var(--card-border);
+
+        // Add a top accent line
+        border-top: 3px solid var(--accent-color);
     }
 }
 
-// Tactical Table Reset
-.table {
-    --bs-table-bg: transparent !important;
-    --bs-table-color: var(--body-color) !important;
-    background-color: transparent !important;
+// Global dropdown styling for all themes
+.dropdown-menu {
+    background-color: var(--card-bg);
+    border-color: var(--card-border);
 }
 
-// Light theme specific refinements
-[data-theme="civdiv-light"] {
-    .text-muted {
-        color: #495057 !important;
+.dropdown-item.text-white {
+    color: var(--body-color, #fff) !important;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: rgba(255, 255, 255, 0.15);
+        color: #fff !important;
     }
-    .form-label {
-        color: #212529 !important;
-        font-weight: 600;
-    }
-    .badge.bg-primary {
-        background-color: #2e86de !important;
-    }
-    .badge.bg-warning {
-        background-color: #f4c40f !important;
-        color: #000 !important;
-    }
-    .btn-outline-warning {
-        color: #856404;
-        border-color: #ffc107;
-        &:hover {
-            background-color: #ffc107;
-            color: #000;
-        }
-    }
-    
 }
 
-// Common component updates
-.form-control, .form-select {
+// Button Overrides to use theme colors
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+
+    &:hover {
+        background-color: color-mix(in srgb, var(--primary-color), white 10%);
+        border-color: color-mix(in srgb, var(--primary-color), white 10%);
+    }
+}
+
+.form-control {
     background-color: var(--card-bg) !important;
     border-color: var(--card-border) !important;
     color: var(--body-color) !important;
@@ -166,20 +289,21 @@ body {
     }
 }
 
+
 // Scrollbar styling
-::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: var(--body-bg); }
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--body-bg);
+}
+
 ::-webkit-scrollbar-thumb {
     background: var(--primary-color);
     border-radius: 5px;
 }
-::-webkit-scrollbar-thumb:hover { background: var(--accent-color); }
 
-// Fix Modal Z-Index to appear above Hero Banner (z-index: 1100) and Dropdowns (z-index: 2000)
-.modal-backdrop {
-    z-index: 2050 !important;
-}
-
-.modal {
-    z-index: 2055 !important;
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
 }

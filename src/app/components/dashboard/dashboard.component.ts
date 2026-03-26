@@ -43,6 +43,9 @@ export class DashboardComponent implements OnInit {
     showBodyMap = signal(true);
     showFilters = signal(true);
 
+    // Performance limit
+    resultsLimit = 50;
+
     constructor(
         private ratingService: RatingDataService,
         @Inject(DOCUMENT) private document: Document

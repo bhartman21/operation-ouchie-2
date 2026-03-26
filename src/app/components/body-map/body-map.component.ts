@@ -31,6 +31,10 @@ export class BodyMapComponent {
         return this.activeView === 'exterior' ? this.exteriorRegions : this.interiorRegions;
     }
 
+    getRegionById(id: string): BodyRegion | undefined {
+        return BODY_REGIONS.find(r => r.id === id);
+    }
+
     setView(view: 'exterior' | 'interior'): void {
         this.activeView = view;
         this.selectedRegion = null;

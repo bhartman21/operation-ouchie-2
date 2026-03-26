@@ -13,18 +13,17 @@ export interface BodyRegion {
 export const BODY_REGIONS: BodyRegion[] = [
     // --- EXTERIOR REGIONS ---
     {
-        id: 'head-skull',
-        label: 'Skull / Face',
+        id: 'head-face',
+        label: 'Face / Oral',
         view: 'exterior',
         subsystems: [
-            { system: 'Musculoskeletal System', subSystem: 'The Skull' },
-            { system: 'Respiratory System', subSystem: 'Nose and Throat' },
             { system: 'Dental and Oral', subSystem: 'Dental and Oral Conditions' },
             { system: 'Other Sense Organs', subSystem: 'Smell and Taste' },
+            { system: 'Neurological', subSystem: 'Cranial Nerves' },
         ]
     },
     {
-        id: 'eyes',
+        id: 'head-eyes',
         label: 'Eyes',
         view: 'exterior',
         subsystems: [
@@ -35,7 +34,7 @@ export const BODY_REGIONS: BodyRegion[] = [
         ]
     },
     {
-        id: 'ears',
+        id: 'head-ears',
         label: 'Ears',
         view: 'exterior',
         subsystems: [
@@ -47,8 +46,8 @@ export const BODY_REGIONS: BodyRegion[] = [
         label: 'Neck',
         view: 'exterior',
         subsystems: [
+            { system: 'Respiratory System', subSystem: 'Nose and Throat' },
             { system: 'Muscle Injuries', subSystem: 'Torso and Neck' },
-            { system: 'Neurological', subSystem: 'Cranial Nerves' },
         ]
     },
     {
@@ -87,6 +86,14 @@ export const BODY_REGIONS: BodyRegion[] = [
         subsystems: [
             { system: 'Musculoskeletal System', subSystem: 'Spine' },
             { system: 'Musculoskeletal System', subSystem: 'The Coccyx' },
+        ]
+    },
+    {
+        id: 'skull',
+        label: 'Skull',
+        view: 'exterior',
+        subsystems: [
+            { system: 'Musculoskeletal System', subSystem: 'The Skull' },
         ]
     },
     {

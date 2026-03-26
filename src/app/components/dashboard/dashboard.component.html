@@ -2,17 +2,25 @@
 
     <!-- Header -->
     <div class="dashboard-hero p-4 rounded mb-4 shadow-lg position-relative">
-        <div class="overlay position-absolute top-0 start-0 w-100 h-100"
-            style="background: rgba(0,0,0,0.4); z-index: 1;"></div>
+        <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
         <div class="row position-relative" style="z-index: 2;">
             <div class="col-12 d-flex justify-content-between align-items-center">
                 <h1 class="display-6 fw-bold text-uppercase text-white text-shadow" style="letter-spacing: 2px;">
                     <i class="bi bi-crosshair me-2"></i>Operation: Ouchie! 2.0
                 </h1>
+<<<<<<< HEAD
                 <div class="d-flex gap-2 align-items-center">
                     <div class="btn-group" style="background-color: var(--card-bg); border-color: var(--card-border);">
                         <a href="https://www.buymeacoffee.com/bhartman21" class="btn btn-primary">☕ Buy me a coffee</a>
                     </div>
+=======
+                <div class="d-flex gap-3 align-items-center">
+                    <div class="btn-group" style="background-color: var(--card-bg); border-color: var(--card-border);">
+                        <a href="https://www.buymeacoffee.com/bhartman21" class="btn btn-primary" target="_blank" rel="noopener noreferrer">☕ Buy me a coffee</a>
+                    </div>
+                    
+                    <!-- Visibility Toggles -->
+>>>>>>> 92be5a0 (Refactor: Restore missing body map regions and unify theme styling.)
                     <div class="btn-group backdrop-blur rounded overflow-hidden shadow-sm" style="border: 1px solid rgba(255,255,255,0.2);">
                         <button class="btn btn-sm" [class.btn-warning]="showBodyMap()" [class.btn-outline-light]="!showBodyMap()" 
                             (click)="showBodyMap.set(!showBodyMap())" title="Toggle Body Map">
@@ -23,18 +31,20 @@
                             <i class="bi bi-funnel"></i>
                         </button>
                     </div>
-                    <div class="dropdown">
+
+                    <div class="dropdown" style="z-index: 1050;">
                         <button class="btn btn-outline-light dropdown-toggle backdrop-blur" type="button"
                             id="themeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-palette me-2"></i>Loadout: {{ currentTheme }}
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="themeDropdown">
-                            <li><button class="dropdown-item" (click)="setTheme('Night Ops', 'default')">Night Ops (Default)</button></li>
-                            <li><button class="dropdown-item" (click)="setTheme('Oorah!', 'usmc')">Oorah!</button></li>
-                            <li><button class="dropdown-item" (click)="setTheme('Jungle Standard', 'jungle')">Jungle Standard</button></li>
-                            <li><hr class="dropdown-divider border-secondary opacity-25"></li>
-                            <li><button class="dropdown-item" (click)="setTheme('CivDiv Light', 'civdiv-light')">CivDiv Light</button></li>
-                            <li><button class="dropdown-item" (click)="setTheme('CivDiv Dark', 'civdiv-dark')">CivDiv Dark</button></li>
+                        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="themeDropdown"
+                            style="background-color: var(--card-bg); border-color: var(--card-border); z-index: 1051;">
+                            <li><button class="dropdown-item text-white" (click)="setTheme('Night Ops', 'default')">Night Ops (Default)</button></li>
+                            <li><button class="dropdown-item text-white" (click)="setTheme('Oorah!', 'usmc')">Oorah!</button></li>
+                            <li><button class="dropdown-item text-white" (click)="setTheme('Jungle Standard', 'jungle')">Jungle Standard</button></li>
+                            <li><hr class="dropdown-divider opacity-25"></li>
+                            <li><button class="dropdown-item text-white" (click)="setTheme('CivDiv Light', 'civdiv-light')">CivDiv Light</button></li>
+                            <li><button class="dropdown-item text-white" (click)="setTheme('CivDiv Dark', 'civdiv-dark')">CivDiv Dark</button></li>
                         </ul>
                     </div>
                 </div>
@@ -42,12 +52,12 @@
         </div>
     </div>
 
-    <!-- Main Layout: Filters (left) + Body Map (middle) + Results (right) -->
-    <div class="row g-3">
+    <!-- Main Layout: Filters (left) + Body Map (center) + Results (right) -->
+    <div class="row g-4 align-items-start">
 
         <!-- Filters Column -->
-        <div class="col-12 col-lg-3" [class.d-none]="!showFilters()">
-            <div class="card filter-card h-100">
+        <div class="col-12 col-md-4 col-lg-3" [class.d-none]="!showFilters()">
+            <div class="card filter-card">
                 <div class="card-header py-2 d-flex justify-content-between align-items-center">
                     <small class="text-muted text-uppercase fw-bold" style="letter-spacing: 0.05em;">
                         <i class="bi bi-funnel me-1"></i>Filters
@@ -57,24 +67,22 @@
                     </button>
                 </div>
                 <div class="card-body">
-                    <!-- Primary Text Filters -->
                     <div class="mb-3">
                         <label class="form-label text-muted small">Diagnostic Code</label>
                         <input type="text" class="form-control" placeholder="e.g. 5260"
                             [(ngModel)]="searchCode" (input)="applyFilter()" autocomplete="off">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label text-muted small">Part or Condition</label>
+                        <label class="form-label text-muted small">Condition Search</label>
                         <input type="text" class="form-control"
                             placeholder="e.g. Ankle, Shoulder..."
                             [(ngModel)]="searchCondition" (input)="applyFilter()" autocomplete="off">
                     </div>
 
-                    <hr class="opacity-25 my-3">
+                    <hr class="my-3 opacity-25">
 
-                    <!-- System / Subsystem Dropdowns -->
                     <div class="mb-3">
-                        <label class="form-label text-muted small">Body System</label>
+                        <label class="form-label text-muted small">System</label>
                         <select class="form-select" [(ngModel)]="selectedSystem" (change)="onSystemChange()">
                             <option value="">All Systems</option>
                             @for (group of systemGroupings; track group.name) {
@@ -92,14 +100,14 @@
                             }
                         </select>
                     </div>
-                    <button class="btn btn-outline-warning w-100" (click)="clearFilters()">
-                        Reset All
+
+                    <button class="btn btn-outline-warning w-100 mt-2" (click)="clearFilters()">
+                        <i class="bi bi-x-circle me-1"></i>Clear All
                     </button>
 
-                    <!-- Active Body Region Badge -->
                     @if (selectedBodyRegion) {
-                        <div class="mt-3">
-                            <span class="badge bg-warning text-dark py-2 px-3 w-100 text-wrap">
+                        <div class="mt-4">
+                            <span class="badge bg-warning text-dark w-100 py-2">
                                 <i class="bi bi-geo-alt-fill me-1"></i>
                                 Region: {{ selectedBodyRegion.label }}
                             </span>
@@ -110,36 +118,48 @@
         </div>
 
         <!-- Body Map Column -->
-        <div class="col-12 col-lg-4" [class.d-none]="!showBodyMap()">
-            <div class="card filter-card h-100">
+        <div class="col-12 col-md-8 col-lg-4" [class.d-none]="!showBodyMap()">
+            <div class="card filter-card">
                 <div class="card-header py-2 d-flex justify-content-between align-items-center">
                     <small class="text-muted text-uppercase fw-bold" style="letter-spacing: 0.05em;">
-                        <i class="bi bi-person-bounding-box me-1"></i>Body Map
+                        <i class="bi bi-person-bounding-box me-1"></i>Body Region Map
                     </small>
                     <button class="btn btn-link btn-sm p-0 text-muted" (click)="showBodyMap.set(false)">
                         <i class="bi bi-x-lg"></i>
                     </button>
                 </div>
-                <div class="card-body p-2">
+                <div class="card-body p-2 d-flex align-items-center justify-content-center">
                     <app-body-map (regionSelected)="onBodyRegionSelected($event)" />
                 </div>
             </div>
         </div>
 
-        <!-- Results Table Column -->
-        <div [class]="(showFilters() && showBodyMap()) ? 'col-12 col-lg-5' : 
-                      (!showFilters() && !showBodyMap()) ? 'col-12' : 
-                      (showFilters()) ? 'col-12 col-lg-9' : 'col-12 col-lg-8'">
-            <div class="card filter-card h-100 shadow-sm border-0">
-                 <div class="card-header py-2">
+        <!-- Results Column -->
+        <div [class]="(showFilters() && showBodyMap()) ? 'col-12 col-lg-5' : (showFilters() || showBodyMap() ? 'col-12 col-lg-8' : 'col-12')">
+            <div class="card filter-card results-container">
+                <div class="card-header py-2 d-flex justify-content-between align-items-center">
                     <small class="text-muted text-uppercase fw-bold" style="letter-spacing: 0.05em;">
-                        <i class="bi bi-list-ul me-1"></i>Found Conditions
+                        <i class="bi bi-list-ul me-1"></i>Results 
+                        <span class="ms-1">({{ filteredRatings.length > resultsLimit ? resultsLimit + '+' : filteredRatings.length }}/{{ filteredRatings.length }})</span>
                     </small>
+                    @if (filteredRatings.length > resultsLimit) {
+                        <button class="btn btn-link btn-sm p-0 text-warning text-decoration-none" (click)="resultsLimit = resultsLimit + 50">
+                            Show More
+                        </button>
+                    }
                 </div>
-                <div class="card-body p-0">
+                <div class="card-body p-0 results-scroll">
                     <app-results-table
-                        [ratings]="filteredRatings"
+                        [ratings]="filteredRatings.slice(0, resultsLimit)"
                         (rowClicked)="openModal($event)" />
+                    
+                    @if (filteredRatings.length > resultsLimit) {
+                        <div class="p-3 text-center border-top">
+                            <button class="btn btn-outline-warning btn-sm" (click)="resultsLimit = resultsLimit + 100">
+                                Load 100 more results
+                            </button>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
@@ -149,7 +169,7 @@
     <app-criteria-modal
         [rating]="selectedRating" />
 
-    <!-- Bootstrap modal trigger -->
+    <!-- Bootstrap modal trigger (opened programmatically on row click) -->
     <button #modalTriggerBtn data-bs-toggle="modal" data-bs-target="#criteriaModal"
         style="display:none" aria-hidden="true"></button>
 
